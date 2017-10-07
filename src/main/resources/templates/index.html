@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="/layout">
+    <head></head>
+<body>
+    <div layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" th:text="#{product.id}">
+            </div>
+            <div class="col-md-4" th:text="#{product.name}">
+            </div>
+            <div class="col-md-4" th:text="#{product.price}">
+            </div>
+        </div>
+        <div th:each="product: ${products}">
+            <div class="row">
+                <div class="col-md-4">
+                    <div th:text="${product.id}"></div>
+                </div>
+                <div class="col-md-4">
+                    <div th:text="${product.name}"></div>
+                </div>
+                <div class="col-md-4">
+                    <div th:text="${#numbers.formatDecimal(product.price, 1, 2)}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
